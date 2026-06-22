@@ -84,17 +84,20 @@ function reset() {
 	// Svuoto l'array
 	numbers.splice(0);
 	// Cancello l'HTML statico
-	visual.innerHTML = '&nbsp';
-	number.innerHTML = '&nbsp';
-	cron.innerHTML = '&nbsp';
-	// Ripristino la grafica del tabellone
-	const colList = document.querySelectorAll('#board .col-1');
-	colList.forEach((col) => {
-		if (col.classList.contains('bg-primary')) {
-			col.classList.remove('bg-primary');
-			col.classList.add('bg-secondary');
-		}
-	});
+	visual.innerHTML = '&nbsp;';
+	number.innerHTML = '&nbsp;';
+	cron.innerHTML = '&nbsp;';
+	// Ripristino la grafica del tabellone con l'array dei nodi della board
+	// const colList = document.querySelectorAll('#board .col-1');
+	// colList.forEach((col) => {
+	// 	if (col.classList.contains('bg-primary')) {
+	// 		col.classList.remove('bg-primary');
+	// 		col.classList.add('bg-secondary');
+	// 	}
+	// });
+    // Ripristino la grafica del tabellone con replaceChildren
+    board.replaceChildren();
+    createBoard();
 	// Disabilito il button ricomincia
 	start.setAttribute('disabled', 'true');
 }
